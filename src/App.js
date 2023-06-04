@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React, { useState, useCallback } from 'react';
+import logo from './assets/gametime_logo.svg';
 import './App.css';
+import SearchInput from './components/searchInput/SearchInput';
+import ListResult from './components/listResults/ListResults';
+import { debounce } from 'lodash';
 
 function App() {
+  const [value, setValue] = useState('');
+  const handleChange = (v) => {
+    setValue(v);
+  };
+
+  const debounceChangeForm = useCallback(debounce(handleChange, 1000), []);
+
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="App-container">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <SearchInput onChange={debounceChangeForm} />
+        <ListResult query={value} />
+      </div>
     </div>
   );
 }

@@ -1,0 +1,48 @@
+.list-container {
+  width: 450px;
+  position: relative;
+  height: 1px;
+}
+
+.list {
+  position: absolute;
+  width: 450px;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.list-item {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.list-item:last-child{
+  border-bottom: none;
+}
+
+.list-item .list-banner img {
+  width: 70px;
+  height: 40px;
+}
+
+.list-content {
+  margin-left: 16px;
+}
+
+.list-content .list-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.list-content .list-desc {
+  font-size: 12px;
+  color: rgb(137, 137, 137);
+}
